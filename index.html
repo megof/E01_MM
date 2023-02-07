@@ -1,22 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/logouwu.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="https://icons.iconarchive.com/icons/pelfusion/flat-file-type/512/log-icon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/logouwu.png" type="image/x-icon">
     <title>Ejercicio 1</title>
 </head>
+
 <body>
-    
+    <div class="sidebar">
+        <div class="user__information">
+            <div class="user__logo">
+                <i class='bx bx-user-circle userlogo'></i>
+                <div class="palabritas">
+                    <h2>Jugador</h2>
+                    <h6>Puntuacion:</h6>
+                </div>
+                <div class="user_inf">
+                    <div class="user__username">
+
+                    </div>
+                    <div class="user__fullname">
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <ul class="nav__list">
+            <li>
+                <a href="#" class="menufoc active" onclick="mostrarData();">
+                    <i class='bx bx-data'></i>
+                    <span class=" links__name ">Registrar Persona</span>
+                </a>
+                <span class="tooltip ">Log Database</span>
+            </li>
+            <li>
+                <a class="menufoc active" name="cerrarSesion">
+                    <span class="links__name "><a class="btn second" href="">SALIR</a></span>
+                </a>
+                <span class="tooltip">Cerrar sesión</span>
+            </li>
+        </ul>
+    </div>
+    <div class="header__cont ">
+    </div>
+    <div class="header__cont jeje">
+
+    </div>
+    <main>
+        <div class="test">
+            <h2 class="table-title" id="title-sesion">Diviertete adivinando el año de nacimiento de usuarios aleatorios.
+            </h2>
+
+
+            <div class="login-page">
+                <div class="cont-login">
+                    <div class="img-login"></div>
+                    <form action="" method="post" id="filter" class="form">
+                        <h5>Ingrese el año de nacimiento que tiene @usuario</h5>
+                        <input type="text" id="año" name="año" placeholder="Año de nacimiento" />
+                        <button type="submit">ADIVINAR</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="container-table " id="idlogSes">
+                <table class=" tableSesion">
+
+                    <table class="table_">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Puntuacion del Usuario</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="color: #FFF;">
+
+                                <td align="left">holia</td>
+                                <td align="left"></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+            </div>
+        </div>
+        </div>
+
+    </main>
 
 
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    
+
     <script src="./js/main.js"></script>
+    <script src="./js/anima.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </body>
+
 </html>
