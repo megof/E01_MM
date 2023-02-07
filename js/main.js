@@ -54,6 +54,7 @@ var app = new Vue({
         lives_u: 0,//vidas usadas actualmente
         percent: 0,//"porcentaje" de cercanía al número
         won: true,
+        history: [],
     },
     methods: {
         Save_User() {//función para registrar un usuario
@@ -68,12 +69,16 @@ var app = new Vue({
         },
         Save_Player() {//función para registrar un jugador
             let user = JSON.parse(localStorage.getItem('arrayPts'));
+            console.log(this.user+"-"+this.year)
             user.push({
                 Name: this.user,
                 Score: this.score,
                 Lives: this.lives_u,
             });
+            this.history.push(user)
             localStorage.setItem('arrayPts', JSON.stringify(user));
+            this.won=true;
+            Init();
         },
         Play() {//esta función se usa para comprobar si la persona adivinó
             let user = JSON.parse(localStorage.getItem('user'));
@@ -109,7 +114,7 @@ var app = new Vue({
                 this.message="Perdiste";
                 this.lives_u=0;
                 this.score=0;
-                this.lives=0;
+                this.lives=7;
                 this.percent=0;
                 this.won=false
                 Reset();
