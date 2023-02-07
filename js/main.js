@@ -29,35 +29,41 @@ function Init(){
     localStorage.setItem('user', JSON.stringify(array[init]));
 };
 Init();
+
 console.log(JSON.parse(localStorage.getItem('user')));
 var app = new Vue({
     el:'#app',
     data:{
         message:"",
-        user:"",
-        year:"",
+        user:"asd",
+        year:"asd",
         score:"",
         lives:7,
         lives_u:0,
     },
     methods:{
         Save_User(){
+            let user = JSON.parse(localStorage.getItem('arrayDatos'));
             (this.year<2024)?
-            JSON.parse(localStorage.getItem('arrayDatos')).push({
+            user.push({
                 Name: this.user,
                 Year: this.year,
             }):
             this.message="";
+            localStorage.setItem('arrayDatos', JSON.stringify(user))
         },
         Save_Player(){
-            JSON.parse(localStorage.getItem('arrayPts')).push({
+            let user = JSON.parse(localStorage.getItem('arrayPts'));
+            user.push({
                 Name: this.user,
                 Score: this.score,
                 Lives: this.lives_u,
-            })
+            });
+            localStorage.setItem('arrayPts', JSON.stringify(user))
         },
         Play(){
-            
+            let user = localStorage.getItem
+            //(this.year==)
         },
     },
 })
