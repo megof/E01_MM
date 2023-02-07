@@ -112,6 +112,7 @@
 
                             </table>
                     </div>
+
                 </div>
         </div>
 
@@ -137,6 +138,24 @@
             </div>
         </div>
     </div>
+
+    
+<div class="as">
+                    
+    <table>
+        <tr>
+            <th>Usuario</th>
+            <th>Puntuacion del Usuario</th>
+            <th>Intentos usados</th>
+        </tr>        
+        <tr v-for="(user, index) in history" :key="index" >
+            <td>{{user.Name}}</td>
+            <td>{{user.Score}}</td>
+            <td>{{user.Lives}}</td>
+        </tr>
+    </table>
+
+</div>
     </div>
     </div>
 
@@ -146,7 +165,8 @@
         crossorigin="anonymous"></script>
 </body>
 
-
+    
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./js/anima.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 <script src="./js/main.js"></script>
