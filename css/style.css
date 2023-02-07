@@ -387,7 +387,7 @@ html {
     margin: auto;
     border-radius: 10px solid #Fff;
     /*Para que no se ponga pegado del sidebar*/
-    padding-left: 350px;
+    padding-left: 30px;
     /*Separa la tabla del header*/
     /* margin-top: 40px; */
     /*Separa la tabla del header*/
@@ -525,12 +525,12 @@ header {
     text-align: center;
     justify-content: center;
     border-collapse: collapse;
-    min-width: 600px;
+    min-width: 500px;
     border: 2px solid #fafafa10;
     border-radius: 10px;
     color: rgb(255, 255, 255);
     padding: 20px;
-    margin-top: 10%;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -789,7 +789,7 @@ header {
   }
   
   .container .info {
-    margin: 50px auto;
+    margin: 1000px auto;
     text-align: center;
   }
   
