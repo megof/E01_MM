@@ -71,7 +71,8 @@
             <div class="header__cont jeje">
 
             </div>
-            <main>
+            <main style="
+            background-color: #276fbd;">
                 <div class="test" id="app">
                     <h2 class="table-title" id="title-sesion">Diviertete adivinando el año de nacimiento de usuarios
                         aleatorios.
@@ -98,14 +99,14 @@
                                     <tr>
                                         <th>Usuario</th>
                                         <th>Puntuacion del Usuario</th>
-
+                                        <th>Intentos usados</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr style="color: #FFF;">
-
-                                        <td align="left">holia</td>
-                                        <td align="left"></td>
+                                    <tr  style="color: #FFF;" class="list-group-item" v-for="(user, index) in history" :key="index">
+                                        <td>{{user.Name}}</td>
+                                        <td>{{user.Score}}</td>
+                                        <td>{{user.Lives}}</td>
                                     </tr>
                                 </tbody>
 
@@ -123,7 +124,7 @@
             <div class="text-center mt-4 name">
                 Registrar Persona
             </div>
-            <form class="p-3 mt-3">
+            <div class="p-3 mt-3">
                 <div class="form-field d-flex align-items-center">
                     <span class="far fa-user"></span>
                     <input v-model="user" type="text" name="nombre" id="nombre" placeholder="Nombre">
@@ -132,8 +133,8 @@
                     <span class="fas fa-key"></span>
                     <input v-model="year" type="text" name="año" id="año" placeholder="Año de nacimiento">
                 </div>
-                <button class="btn mt-3" @click="Save_User">Registrar</button>
-            </form>
+                <button class="btn mt-3" @click="Save_Player">Registrar</button>
+            </div>
         </div>
     </div>
     </div>
@@ -143,10 +144,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <script src="./js/anima.js"></script>
 </body>
 
 
+    <script src="./js/anima.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 <script src="./js/main.js"></script>
 
