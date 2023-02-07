@@ -62,8 +62,14 @@ var app = new Vue({
             localStorage.setItem('arrayPts', JSON.stringify(user))
         },
         Play(){
-            let user = localStorage.getItem
+            let user = JSON.parse(localStorage.getItem('user'));
+            (user.Year==this.year)?
+                this.message="win":
+                this.message=Calc()
             //(this.year==)
+        },
+        Calc(){
+
         },
     },
 })
