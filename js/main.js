@@ -28,13 +28,20 @@ function Rand() {
 }
 function Init() {//escoge una adivinanza al azar para iniciar el juego
     let array = JSON.parse(localStorage.getItem('arrayDatos'));
+    let aux = []
     if (array.length > 0) {
         let init = Math.floor(Math.random() * array.length);
         localStorage.setItem('user', JSON.stringify(array[init]));
-        array = array.splice(init, 1);
+        array.map(e=>{
+            if(e != array[init]){
+                aux.push(e)
+            }
+        })
+        //array = array.splice(init, 1);
+        localStorage.setItem('arrayDatos', JSON.stringify(aux))
     }
+    console.log(JSON.parse(localStorage.getItem('user')));
 }
-console.log(JSON.parse(localStorage.getItem('user')));
 Reset();
 var app = new Vue({
     el: '#app',
@@ -46,6 +53,7 @@ var app = new Vue({
         lives: 7,//vidas restantes del usuario
         lives_u: 0,//vidas usadas actualmente
         percent: 0,//"porcentaje" de cercanía al número
+        won: true,
     },
     methods: {
         Save_User() {//función para registrar un usuario
@@ -81,6 +89,8 @@ var app = new Vue({
         },
         Calc(user) {
             let aux = Math.abs(this.year - user.Year);//se calcula la "distancia entre el año ingresado y el actual"
+            console.log(this.year+"-"+user.Year+"="+aux)
+            console.log(this.year+"-"+user.Year+"="+aux)
             if (aux < 25) {
                 this.message = "Estás muy cerca";
                 this.percent = 75;
@@ -94,13 +104,14 @@ var app = new Vue({
                 this.message = "Estás muy lejos";
                 this.percet = 0;
             }
-            this.Lives -= 1;
-            if (this.Lives == 0) {
+            this.lives -= 1;
+            if (this.lives == 0) {
                 this.message="Perdiste";
                 this.lives_u=0;
                 this.score=0;
                 this.lives=0;
                 this.percent=0;
+                this.won=false
                 Reset();
             }
         },
