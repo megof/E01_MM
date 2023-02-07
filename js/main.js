@@ -1,5 +1,5 @@
-function Reset() {
-    localStorage.setItem('arrayPts', JSON.stringify([]));
+localStorage.setItem('arrayPts', JSON.stringify([]));
+function Reset() { //función que inicializa las variables para los puntos y adivinanzas disponibles
     localStorage.setItem('arrayDatos', JSON.stringify(
         [{
             Name: 'Lady',
@@ -24,9 +24,9 @@ function Reset() {
     Init();
 }
 function Rand() {
-    return Math.floor(Math.random() * 124) + 1900;
+    return Math.floor(Math.random() * 124) + 1900;///genera un número aleatorio entre el 1900 y el 2023
 }
-function Init() {
+function Init() {//escoge una adivinanza al azar para iniciar el juego
     let array = JSON.parse(localStorage.getItem('arrayDatos'));
     if (array.length > 0) {
         let init = Math.floor(Math.random() * array.length);
@@ -39,17 +39,16 @@ Reset();
 var app = new Vue({
     el: '#app',
     data: {
-        message: "",
-        user: "asd",
-        year: "asd",
-        score: "",
-        lives: 7,
-        lives_u: 0,
-        percent: 0,
-        games: []
+        message: "",//mensajes del sistema
+        user: "",//nombre de usuario que se registrará o estará jugando
+        year: 0,//año del usuario que se registrará
+        score: 0,//puntaje del usuario que está jugando
+        lives: 7,//vidas restantes del usuario
+        lives_u: 0,//vidas usadas actualmente
+        percent: 0,//"porcentaje" de cercanía al número
     },
     methods: {
-        Save_User() {
+        Save_User() {//función para registrar un usuario
             let user = JSON.parse(localStorage.getItem('arrayDatos'));
             (this.year < 2024) ?
                 user.push({
@@ -59,7 +58,7 @@ var app = new Vue({
                 this.message = "";
             localStorage.setItem('arrayDatos', JSON.stringify(user));
         },
-        Save_Player() {
+        Save_Player() {//función para registrar un jugador
             let user = JSON.parse(localStorage.getItem('arrayPts'));
             user.push({
                 Name: this.user,
@@ -68,18 +67,20 @@ var app = new Vue({
             });
             localStorage.setItem('arrayPts', JSON.stringify(user));
         },
-        Play() {
+        Play() {//esta función se usa para comprobar si la persona adivinó
             let user = JSON.parse(localStorage.getItem('user'));
             (user.Year == this.year) ?
                 this.Win() :
                 this.Calc(user);
         },
-        Win() {
+        Win() {//en caso de adivinar se resetea las vidas y el score y se aumenta la puntucación
             this.Lives = 7;
-            Init()
+            this.score +=10;
+            this.percent=0;
+            Init();
         },
         Calc(user) {
-            let aux = Math.abs(this.year - user.Year);
+            let aux = Math.abs(this.year - user.Year);//se calcula la "distancia entre el año ingresado y el actual"
             if (aux < 25) {
                 this.message = "Estás muy cerca";
                 this.percent = 75;
@@ -95,6 +96,11 @@ var app = new Vue({
             }
             this.Lives -= 1;
             if (this.Lives == 0) {
+                this.message="Perdiste";
+                this.lives_u=0;
+                this.score=0;
+                this.lives=0;
+                this.percent=0;
                 Reset();
             }
         },
