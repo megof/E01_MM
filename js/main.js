@@ -55,6 +55,7 @@ var app = new Vue({
         percent: 0,//"porcentaje" de cercanía al número
         won: true,
         history: [],
+        adv: JSON.parse(localStorage.getItem('user')).Name,
     },
     methods: {
         Save_User() {//función para registrar un usuario
@@ -75,16 +76,20 @@ var app = new Vue({
                 Score: this.score,
                 Lives: this.lives_u,
             });
-         
             localStorage.setItem('arrayPts', JSON.stringify(user));
-            this.won=true;
-            swal("","Persona registrada","success");
-            Init();
             this.history.push({
                 Name: this.user,
                 Score: this.score,
                 Lives: this.lives_u,
             })
+            swal("","Persona registrada","success");
+            
+            this.lives_u=0;
+            this.score=0;
+            this.lives=7;
+            this.percent=0;
+            this.won=true;
+            Init();
         },
         Play() {//esta función se usa para comprobar si la persona adivinó
             let user = JSON.parse(localStorage.getItem('user'));
@@ -93,7 +98,7 @@ var app = new Vue({
                 this.Calc(user);
         },
         Win() {//en caso de adivinar se resetea las vidas y el score y se aumenta la puntucación
-            this.Lives = 7;
+            this.lives = 7;
             this.score +=10;
             this.percent=0;
             swal("Felicidades","Has ganado","success");
@@ -121,13 +126,10 @@ var app = new Vue({
                 this.percet = 0;
             }
             this.lives -= 1;
+            this.lives_u +=1;
             if (this.lives == 0) {
                 swal("Lo siento","Perdiste","error");
                 this.message="Perdiste";
-                this.lives_u=0;
-                this.score=0;
-                this.lives=7;
-                this.percent=0;
                 this.won=false
                 Reset();
             }

@@ -83,7 +83,7 @@
                         <div class="cont-login">
                             <div class="img-login"></div>
                             <div action="" class="form">
-                                <h5>Ingrese el año de nacimiento que tiene @usuario</h5>
+                                <h5>Ingrese el año de nacimiento que tiene <span v-text="adv"></span></h5>
                                 <input v-model="year" type="text" id="año" name="año" placeholder="Año de nacimiento" />
                                 <button @click="Play">ADIVINAR</button>
                             </div>
@@ -103,7 +103,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr  style="color: #FFF;" class="list-group-item" v-for="(user, index) in history" :key="index">
+                                    <tr style="color: #FFF;" class="list-group-item" v-for="(user, index) in history"
+                                        :key="index">
                                         <td>{{user.Name}}</td>
                                         <td>{{user.Score}}</td>
                                         <td>{{user.Lives}}</td>
@@ -117,45 +118,45 @@
         </div>
 
         </main>
-    <div v-else>
-        <div class="wrapper">
-            <div class="logo">
-                <img src="img/logouwu.png" alt="">
-            </div>
-            <div class="text-center mt-4 name">
-                Registrar Persona
-            </div>
-            <div class="p-3 mt-3">
-                <div class="form-field d-flex align-items-center">
-                    <span class="far fa-user"></span>
-                    <input v-model="user" type="text" name="nombre" id="nombre" placeholder="Nombre">
+        <div v-else>
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="img/logouwu.png" alt="">
                 </div>
-                <div class="form-field d-flex align-items-center">
-                    <span class="fas fa-key"></span>
-                    <input v-model="year" type="text" name="año" id="año" placeholder="Año de nacimiento">
+                <div class="text-center mt-4 name">
+                    Registrar Persona
                 </div>
-                <button class="btn mt-3" @click="Save_Player">Registrar</button>
+                <div class="p-3 mt-3">
+                    <div class="form-field d-flex align-items-center">
+                        <span class="far fa-user"></span>
+                        <input v-model="user" type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="fas fa-key"></span>
+                        <input v-model="year" type="text" name="año" id="año" placeholder="Año de nacimiento">
+                    </div>
+                    <button class="btn mt-3" @click="Save_Player">Registrar</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    
-<div class="as">
-                    
-    <table>
-        <tr>
-            <th>Usuario</th>
-            <th>Puntuacion del Usuario</th>
-            <th>Intentos usados</th>
-        </tr>        
-        <tr v-for="(user, index) in history" :key="index" >
-            <td>{{user.Name}}</td>
-            <td>{{user.Score}}</td>
-            <td>{{user.Lives}}</td>
-        </tr>
-    </table>
 
-</div>
+        <div class="as">
+
+            <table>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Puntuacion del Usuario</th>
+                    <th>Intentos usados</th>
+                </tr>
+                <tr v-for="(user, index) in history" :key="index">
+                    <td>{{user.Name}}</td>
+                    <td>{{user.Score}}</td>
+                    <td>{{user.Lives}}</td>
+                </tr>
+            </table>
+
+        </div>
     </div>
     </div>
 
@@ -165,9 +166,9 @@
         crossorigin="anonymous"></script>
 </body>
 
-    
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="./js/anima.js"></script>
+<script src="./js/anima.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 <script src="./js/main.js"></script>
 
