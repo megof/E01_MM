@@ -550,6 +550,7 @@ header {
     padding: 20px;
   }
   
+  
   .table_ thead {
     background-color: #1818b6;
     background-image: linear-gradient(160deg, #276fbd 0%, #0f0053 100%);
@@ -559,11 +560,12 @@ header {
   
   .table_ tr:nth-child(even) {
     background: rgba(0, 0, 0, .1);
+    
   }
   
   .table_ tr:hover td {
-  
     background: rgba(255, 255, 255, .3);
+   
   }
   
   
