@@ -22,7 +22,7 @@
 
 <body>
     <div id="app">
-        <div v-if="won">
+        <div v-if="won==0">
             <div class="sidebar">
                 <div class="user__information">
                     <div class="user__logo">
@@ -36,11 +36,8 @@
                         </div>
                         <div class="user_inf">
                             <div class="user__username">
-
                             </div>
                             <div class="user__fullname">
-
-
                             </div>
                         </div>
                     </div>
@@ -51,8 +48,8 @@
                     </div>
                 </div>
                 <ul class="nav__list">
-                    <li>
-                        <a href="registro.html" class="menufoc active" onclick="mostrarData();">
+                    <li @click="Regus">
+                        <a class="menufoc active">
                             <i class='bx bx-data'></i>
                             <span class=" links__name ">Registrar Persona</span>
                         </a>
@@ -69,16 +66,13 @@
             <div class="header__cont ">
             </div>
             <div class="header__cont jeje">
-
             </div>
             <main style="
             background-color: #276fbd;">
-                <div class="test" id="app">
+                <div class="test">
                     <h2 class="table-title" id="title-sesion">Diviertete adivinando el año de nacimiento de usuarios
                         aleatorios.
                     </h2>
-
-
                     <div class="login-page">
                         <div class="cont-login">
                             <div class="img-login"></div>
@@ -89,11 +83,8 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="container-table " id="idlogSes">
                         <table class=" tableSesion">
-
                             <table class="table_">
                                 <thead>
                                     <tr>
@@ -113,12 +104,10 @@
 
                             </table>
                     </div>
-
                 </div>
+            </main>
         </div>
-
-        </main>
-        <div v-else>
+        <div v-if="won==1">
             <div class="wrapper">
                 <div class="logo">
                     <img src="img/logouwu.png" alt="">
@@ -139,28 +128,28 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="as">
-
-            <table>
-                <tr>
-                    <th>Usuario</th>
-                    <th>Puntuacion del Usuario</th>
-                    <th>Intentos usados</th>
-                </tr>
-                <tr v-for="(user, index) in history" :key="index">
-                    <td>{{user.Name}}</td>
-                    <td>{{user.Score}}</td>
-                    <td>{{user.Lives}}</td>
-                </tr>
-            </table>
-
+        <div v-if="won==2">
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="img/logouwu.png" alt="">
+                </div>
+                <div class="text-center mt-4 name">
+                    Registrar Persona
+                </div>
+                <div class="p-3 mt-3">
+                    <div class="form-field d-flex align-items-center">
+                        <span class="far fa-user"></span>
+                        <input v-model="user" type="text" name="nombre" id="nombre" placeholder="Nombre">
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <span class="fas fa-key"></span>
+                        <input v-model="year" type="text" name="año" id="año" placeholder="Año de nacimiento">
+                    </div>
+                    <button class="btn mt-3" @click="Save_User">Registrar</button>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
