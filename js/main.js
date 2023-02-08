@@ -75,10 +75,16 @@ var app = new Vue({
                 Score: this.score,
                 Lives: this.lives_u,
             });
-            this.history.push(user)
+         
             localStorage.setItem('arrayPts', JSON.stringify(user));
             this.won=true;
+            swal("","Persona registrada","success");
             Init();
+            this.history.push({
+                Name: this.user,
+                Score: this.score,
+                Lives: this.lives_u,
+            })
         },
         Play() {//esta función se usa para comprobar si la persona adivinó
             let user = JSON.parse(localStorage.getItem('user'));
@@ -90,6 +96,7 @@ var app = new Vue({
             this.Lives = 7;
             this.score +=10;
             this.percent=0;
+            swal("Felicidades","Has ganado","success");
             Init();
         },
         Calc(user) {
@@ -97,20 +104,25 @@ var app = new Vue({
             console.log(this.year+"-"+user.Year+"="+aux)
             console.log(this.year+"-"+user.Year+"="+aux)
             if (aux < 25) {
-                this.message = "Estás muy cerca";
+                swal("Sigue intentanto","Estás muy cerca","error");
+                  this.message = "Estás muy cerca";
                 this.percent = 75;
             } else if (aux < 50) {
+                swal("Sigue intentanto","Estás cerca","error");
                 this.message = "Estás cerca";
                 this.percet = 50;
             } else if (aux < 75) {
+                swal("Sigue intentanto","Estás lejos","error");
                 this.message = "Estás lejos";
                 this.percet = 25;
             } else {
+                swal("Sigue intentanto","Estás muy lejos","error");
                 this.message = "Estás muy lejos";
                 this.percet = 0;
             }
             this.lives -= 1;
             if (this.lives == 0) {
+                swal("Lo siento","Perdiste","error");
                 this.message="Perdiste";
                 this.lives_u=0;
                 this.score=0;

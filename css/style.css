@@ -814,3 +814,15 @@ header {
   .container .info span .fa {
     color: #EF3B3A;
   }
+
+  .as{
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    margin: auto;
+    margin: 94px;
+    margin-left: 540px;
+    color: #1abc9c;
+    border-color: 1px solid blueviolet ;
+    border-width: 5px;
+  }
