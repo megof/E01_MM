@@ -75,12 +75,16 @@ var app = new Vue({
                 Score: this.score,
                 Lives: this.lives_u,
             });
-            this.history.push(user)
+         
             localStorage.setItem('arrayPts', JSON.stringify(user));
             this.won=true;
-            
             swal("","Persona registrada","success");
             Init();
+            this.history.push({
+                Name: this.user,
+                Score: this.score,
+                Lives: this.lives_u,
+            })
         },
         Play() {//esta función se usa para comprobar si la persona adivinó
             let user = JSON.parse(localStorage.getItem('user'));
